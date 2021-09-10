@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JaScript para React</h1>
+    <div id="formulario">
+        <form>
+            <label for="">Nombre</label>
+            <input id="nombre" type="text" value="">
+            <label for="">Nota1</label>
+            <input type="text" value=""  name="nota1" onkeypress="nota1()">
+            <label for="">Nota2</label>
+            <input type="text" value=""  onchange="nota2()">
+            <button onclick="mensaje()">Aceptar</button>
+        </form>
+        <div id="root">
+
+        </div>
+        <script>
+            let n1=''
+            let n2=''
+            let nombre=''
+            function mensaje(){
+                event.preventDefault()
+                nombre = document.getElementById("nombre").value
+                //alert(nombre)
+                $root = document.getElementById("root")
+                $root.innerHTML = `
+                 <h2>${nombre} : Notas: [${n1},${n2}]</h2>
+                `
+                console.log(nombre,n1,n2)
+            }
+            function nota1(){
+                //console.log(event.target.name, event.target.value)
+                console.log(String.fromCharCode(event.keycode))
+                n1 += String.fromCharCode(event.keycode)
+            }
+            function nota2(){
+                //console.log(event.target.name, event.target.value)
+                n2 = event.target.value
+            }
+        </script>
+    </div>
+</body>
+</html>
